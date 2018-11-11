@@ -24,7 +24,7 @@ class AddUpdateCascadeToCastesTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migrations
      *
      * @return void
      */
