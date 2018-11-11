@@ -17,42 +17,38 @@ class AddExtra2ColoumnToUsersTable extends Migration
             $table->string('mother_tounge',50)->after('mobile_number');
             $table->string('manglik',50)->after('mother_tounge');
 
-            $table->unsignedInteger('religion_id')->after('manglik');
+            $table->unsignedInteger('religion_id')->nullable()->after('manglik');
             $table->foreign('religion_id')
                   ->references('id')->on('religions')
-                  ->onUpdate('cascade');
-                  //->onDelete('set null');
+                  ->onDelete('set null')->onUpdate('cascade');
+                  
 
-            $table->unsignedInteger('caste_id')->after('religion_id');
+            $table->unsignedInteger('caste_id')->nullable()->after('religion_id');
             $table->foreign('caste_id')
                   ->references('id')->on('castes')
-                  ->onUpdate('cascade');
-                  //->onDelete('set null');
-                        
-            $table->unsignedInteger('sub_caste_id')->after('caste_id');
+                  ->onDelete('set null')->onUpdate('cascade');      
+           
+            $table->unsignedInteger('sub_caste_id')->nullable()->after('caste_id');
             $table->foreign('sub_caste_id')
                   ->references('id')->on('subcastes')
-                  ->onUpdate('cascade');
-                  //->onDelete('set null');
+                  ->onDelete('set null')->onUpdate('cascade');
                   
-            $table->unsignedInteger('country_id')->after('sub_caste_id');
+            $table->unsignedInteger('country_id')->nullable()->after('sub_caste_id');
             $table->foreign('country_id')
                   ->references('id')->on('countries')
-                  ->onUpdate('cascade');
-                  //->onDelete('set null');
+                  ->onDelete('set null')->onUpdate('cascade');
                   
-            $table->unsignedInteger('state_id')->after('country_id');
+            $table->unsignedInteger('state_id')->nullable()->after('country_id');
             $table->foreign('state_id')
                   ->references('id')->on('states')
-                  ->onUpdate('cascade');
-                  //->onDelete('set null');
+                  ->onDelete('set null')->onUpdate('cascade');
 
                   
-            $table->unsignedInteger('city_id')->after('state_id');
+            $table->unsignedInteger('city_id')->nullable()->after('state_id');
             $table->foreign('city_id')
                   ->references('id')->on('cities')
-                  ->onUpdate('cascade');
-                  //->onDelete('set null');
+                  ->onDelete('set null')->onUpdate('cascade');
+
             $table->string('pincode',15)->after('city_id')->after('city_id');
             
             
