@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\UserProfile;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -73,7 +74,9 @@ class RegisterController extends Controller
     {   
         $profile_code  = 'CM'.$data['gender']."00".$data['profile_code']."000";
         $dob = $data['year']."-".$data['month']."-".$data['day'];
-        return User::create([
+        
+        //Add Data In users table
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -83,6 +86,14 @@ class RegisterController extends Controller
             'dob'=>$dob,
             'mobile_number'=>$data['mobile_number'],
         ]);
+
+        //Add Data in user_profiles tables
+        $profile = new UserProfile;
+        $profile->reg_step = "1";
+        $profile->profile_completion = "0";
+        $user->userProfile()->save($profile);
+
+        return $user;
     }
 
     /**

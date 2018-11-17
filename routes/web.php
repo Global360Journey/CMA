@@ -8,6 +8,12 @@
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
+| 
+|
+| Important Url For Laravel
+| 1. https://quickadminpanel.com/blog/eloquent-relationships-the-ultimate-guide/
+| 2. https://laravel-news.com/5-laravel-helpers-make-life-easier
+|
 |
 */
 
