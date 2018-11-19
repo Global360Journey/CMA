@@ -24,11 +24,13 @@
 		        <span class="icon-bar"></span>
 		      </button>
 		      <a class="navbar-brand" href="#"></a>
+
+				
 		   </div> 
 		   <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 		        <ul class="nav navbar-nav nav_1">
-		            <li><a href="{{ route('/') }}">Home</a></li>
+		            <li><a href="{{ route('/') }}">Home {{ auth('web')->user()->name }}</a></li>
 		            <li><a href="about.html">About</a></li>
                     @if(Auth::guard('web')->check())
 		    		<li class="dropdown">
