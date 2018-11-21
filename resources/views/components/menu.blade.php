@@ -30,9 +30,10 @@
 		   <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 		        <ul class="nav navbar-nav nav_1">
-		            <li><a href="{{ route('/') }}">Home {{ auth('web')->user()->name }}</a></li>
+		            <li><a href="{{ route('/') }}">Home </a></li>
 		            <li><a href="about.html">About</a></li>
                     @if(Auth::guard('web')->check())
+										  @if(auth('web')->user()->email_verified_at!=NULL)
 		    		<li class="dropdown">
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Matches<span class="caret"></span></a>
 		              <ul class="dropdown-menu" role="menu">
@@ -63,6 +64,7 @@
 		                <li><a href="upgrade.html">Upgrade</a></li>
 		              </ul>
 		            </li>
+										@endif
                     @else
                     <li class="last"><a href="{{ route('login') }}">Login</a></li>
                     <li class="last"><a href="{{ route('register') }}">Register Free</a></li>
